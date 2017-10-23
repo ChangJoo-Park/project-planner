@@ -1,8 +1,12 @@
 <template>
   <section class="container">
     <h1 class="title">Projects</h1>
-    <button @click="createNewProject">Hello</button>
-    {{ projects }}
+    <div v-if="emptyProjects">
+      <h2 class="title">Empty Projects!</h2>
+    </div>
+    <div v-else>
+      {{ projects }}
+    </div>
   </section>
 </template>
 
@@ -18,6 +22,11 @@ export default {
   data: function () {
     return {
       projects: []
+    }
+  },
+  computed: {
+    emptyProjects: function () {
+      return this.projects.length === 0
     }
   },
   methods: {
