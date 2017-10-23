@@ -58,6 +58,11 @@
           hide-details
         ></v-text-field>
       </v-layout>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>add</v-icon>
+      </v-btn>
+
     </v-toolbar>
     <main>
       <v-content>
