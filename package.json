@@ -37,6 +37,7 @@
     "vuetify": "^0.16.9"
   },
   "devDependencies": {
+    "sqlite3": "^3.1.13",
     "standard": "^10.0.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1"
