@@ -9,7 +9,7 @@ module.exports = {
       generateStatsFile: true,
       statsFilename: 'webpack-stats.json'
     },
-    vendor: ['vuetify']
+    vendor: ['vuetify', 'axios']
   },
   plugins: ['~plugins/vuetify.js'],
   css: [
