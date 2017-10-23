@@ -9,7 +9,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text" @click="">
+        <v-list-tile v-for="item in items" :key="item.text" @click="" ripple>
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
