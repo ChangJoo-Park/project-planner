@@ -1,8 +1,8 @@
 {
-  "name": "adonuxt-4-vuetifyjs",
-  "version": "1.0.0",
+  "name": "project-planner",
+  "version": "0.0.0",
   "author": "ChangJoo Park",
-  "description": "Adonis + Nuxt + Vuetify boilerplate template",
+  "description": "Project Planner for Study",
   "license": "MIT",
   "private": true,
   "main": "server.js",
@@ -18,7 +18,10 @@
     "adonisjs",
     "nuxt",
     "nuxtjs",
-    "nuxt.js"
+    "nuxt.js",
+    "vuetify",
+    "vuetifyjs",
+    "vuetify.js"
   ],
   "dependencies": {
     "@adonisjs/ace": "^4.0.6",
