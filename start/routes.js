@@ -16,11 +16,12 @@
 const Route = use('Route')
 
 Route.group(() => {
-
   Route
     .resource('users', 'UserController')
     .apiOnly()
-
+  Route
+    .resource('projects', 'ProjectController')
+    .apiOnly()
 }).prefix('api/v1')
 
 Route.any('*', 'NuxtController.render')
