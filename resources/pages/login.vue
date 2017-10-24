@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   layout: 'auth',
   data: function () {
@@ -27,14 +25,12 @@ export default {
   methods: {
     login: async function () {
       try {
-        const login = await axios({
-          method: 'post',
-          url: 'http://localhost:3333/api/v1/auth',
-          data: {
-            email: this.email,
-            password: this.password
-          }
+        await this.$store.dispatch('login', {
+          email: this.email,
+          password: this.password
         })
+        this.email = ''
+        this.password = ''
         this.$router.push({ name: 'projects' })
       } catch (e) {
         console.log(e)
