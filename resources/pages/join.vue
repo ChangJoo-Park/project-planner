@@ -1,5 +1,6 @@
 <template>
   <section>
+    <h1 class="title">Join</h1>
     <form @submit.prevent="submit">
       <div>
         <input type="text" placeholder="Username" v-model="username">
@@ -29,12 +30,20 @@ export default {
   },
   methods: {
     submit: async function () {
-      console.log(this.$data)
-      const register = await axios({
-        method: 'post',
-        url: 'http://localhost:3333/api/v1/users'
-      })
-      console.log(register)
+      try {
+        const register = await axios({
+          method: 'post',
+          url: 'http://localhost:3333/api/v1/users',
+          data: {
+            username: this.username,
+            email: this.email,
+            password: this.password
+          }
+        })
+        this.$router.push({ name: 'login' })
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }
