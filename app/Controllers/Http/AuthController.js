@@ -3,7 +3,13 @@
 class AuthController {
   async login ({ request, auth }) {
     const { email, password } = request.all()
-    return await auth.attempt(email, password)
+    try {
+      const login = await auth.attempt(email, password)
+      return login
+    } catch (e) {
+      console.log(e)
+      return e
+    }
   }
 }
 
