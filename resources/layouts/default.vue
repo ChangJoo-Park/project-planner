@@ -9,7 +9,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text" @click="" ripple>
+        <v-list-tile v-for="item in items" :key="item.text" @click="" ripple nuxt exact :to="item.to">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -88,8 +88,7 @@
       return {
         drawer: true,
         items: [
-          { text: 'Home', icon: 'dashboard' },
-          { text: 'About', icon: 'question_answer' }
+          { text: 'Dashboard', icon: 'dashboard', to: '/projects' }
         ],
         items2: []
       }
