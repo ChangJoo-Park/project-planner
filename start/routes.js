@@ -23,7 +23,9 @@ Route.group(() => {
     .resource('projects', 'ProjectController')
     .apiOnly()
   Route
-    .post('auth', 'AuthController.login')
+    .post('auth/login', 'AuthController.login')
+  Route
+    .post('auth/logout', 'AuthController.logout')
 }).prefix('api/v1')
 
 Route.any('*', 'NuxtController.render')
