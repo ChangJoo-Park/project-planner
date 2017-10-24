@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   layout: 'auth',
   data: function () {
@@ -26,8 +28,13 @@ export default {
     }
   },
   methods: {
-    submit: function () {
+    submit: async function () {
       console.log(this.$data)
+      const register = await axios({
+        method: 'post',
+        url: 'http://localhost:3333/api/v1/users'
+      })
+      console.log(register)
     }
   }
 }
