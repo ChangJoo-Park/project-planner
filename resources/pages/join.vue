@@ -1,14 +1,14 @@
 <template>
   <section>
-    <form>
+    <form @submit.prevent="submit">
       <div>
-        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Username" v-model="username">
       </div>
       <div>
-        <input type="text" placeholder="Email">
+        <input type="email" placeholder="Email" v-model="email">
       </div>
       <div>
-        <input type="text" placeholder="Password">
+        <input type="password" placeholder="Password" v-model="password">
       </div>
       <input type="submit">
     </form>
@@ -17,7 +17,19 @@
 
 <script>
 export default {
-  layout: 'auth'
+  layout: 'auth',
+  data: function () {
+    return {
+      username: '',
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    submit: function () {
+      console.log(this.$data)
+    }
+  }
 }
 </script>
 
