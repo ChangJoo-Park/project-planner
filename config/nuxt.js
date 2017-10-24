@@ -9,9 +9,12 @@ module.exports = {
       generateStatsFile: true,
       statsFilename: 'webpack-stats.json'
     },
-    vendor: ['vuetify', 'axios']
+    vendor: ['vuetify', 'axios', 'vuelidate']
   },
-  plugins: ['~plugins/vuetify.js'],
+  plugins: [
+    '~plugins/vuetify.js',
+    '~plugins/vuelidate.js'
+  ],
   css: [
     { src: '~assets/css/app.styl', lang: 'styl' },
     '~assets/css/main.css'
