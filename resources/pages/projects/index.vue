@@ -15,6 +15,7 @@ import axios from 'axios'
 
 export default {
   name: 'page-index',
+  middleware: 'auth',
   async asyncData ({ params }) {
     const { data: projects } = await axios.get('http://localhost:3333/api/v1/projects')
     return { projects }
