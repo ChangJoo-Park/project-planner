@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section>
     <img src="/img/logo.png" alt="Adonuxt logo"/>
     <h1 class="title">Universal Vue.js Applications Framework</h1>
     <nuxt-link :to="{ name: 'about' }">About</nuxt-link>
@@ -9,6 +9,7 @@
 
 <script>
   export default {
+    layout: 'landing',
     name: 'page-index'
   }
 </script>
