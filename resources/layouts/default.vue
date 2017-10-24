@@ -59,10 +59,9 @@
         ></v-text-field>
       </v-layout>
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn icon append to="/projects/new">
         <v-icon>add</v-icon>
       </v-btn>
-
     </v-toolbar>
     <main>
       <v-content>
