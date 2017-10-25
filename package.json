@@ -1,6 +1,6 @@
 {
   "name": "project-planner",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "ChangJoo Park",
   "description": "Project Planner for Study",
   "license": "MIT",
@@ -38,6 +38,7 @@
     "axios": "^0.17.0",
     "cross-env": "^5.1.0",
     "nuxt": "^1.0.0-rc9",
+    "vuelidate": "^0.6.1",
     "vuetify": "^0.16.9"
   },
   "devDependencies": {
