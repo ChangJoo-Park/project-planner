@@ -14,14 +14,13 @@ export const actions = {
   // nuxtServerInit is called by Nuxt.js before server-rendering every page
   nuxtServerInit ({ commit }, { req }) {
     // FIXME: req.session is Null
-    console.log('req : ', req.auth)
     if (req.auth && req.auth.$attributes) {
-      commit('SET_USER', req.auth.$attributes)
+      const auth = req.auth.$attributes
+      commit('SET_USER', auth)
     }
   },
   async login ({ commit }, { email, password }) {
     try {
-      console.log('#login , email,password', email, password)
       const { data } = await axios.post('http://localhost:3333/api/v1/auth/login', { email, password })
       commit('SET_USER', data)
     } catch (error) {
