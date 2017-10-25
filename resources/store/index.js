@@ -40,3 +40,7 @@ export const actions = {
     }
   }
 }
+
+export const getters = {
+  currentUser: state => state.authUser
+}
