@@ -14,8 +14,9 @@ export const actions = {
   // nuxtServerInit is called by Nuxt.js before server-rendering every page
   nuxtServerInit ({ commit }, { req }) {
     // FIXME: req.session is Null
-    if (req.session && req.session.authUser) {
-      commit('SET_USER', req.session.authUser)
+    console.log('req : ', req.auth)
+    if (req.auth && req.auth.$attributes) {
+      commit('SET_USER', req.auth.$attributes)
     }
   },
   async login ({ commit }, { email, password }) {
