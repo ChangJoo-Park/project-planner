@@ -13,7 +13,7 @@ class AuthController {
   }
 
   async logout ({ request, auth }) {
-
+    return await auth.logout()
   }
 }
 
