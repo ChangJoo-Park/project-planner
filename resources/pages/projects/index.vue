@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <h1 class="title">Projects</h1>
+    <button @click="logout">Logout</button>
     <div v-if="emptyProjects">
       <h2 class="title">Empty Projects!</h2>
     </div>
@@ -32,8 +33,12 @@ export default {
   },
   methods: {
     createNewProject: function () {
-      window.alert('Hello')
       console.log(this.projects)
+    },
+    logout: async function () {
+      const logout = await this.$store.dispatch('logout')
+      console.log(logout)
+      this.$route.push({ name: 'index' })
     }
   }
 }

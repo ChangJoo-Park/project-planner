@@ -21,7 +21,7 @@ export const actions = {
   async login ({ commit }, { email, password }) {
     try {
       console.log('#login , email,password', email, password)
-      const { data } = await axios.post('http://localhost:3333/api/v1/auth', { email, password })
+      const { data } = await axios.post('http://localhost:3333/api/v1/auth/login', { email, password })
       commit('SET_USER', data)
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -32,7 +32,11 @@ export const actions = {
   },
 
   async logout ({ commit }) {
-    await axios.post('http://localhost:3333/api/v1/logout')
-    commit('SET_USER', null)
+    try {
+      await axios.post('http://localhost:3333/api/v1/auth/logout')
+      commit('SET_USER', null)
+    } catch (error) {
+      console.log('error')
+    }
   }
 }
