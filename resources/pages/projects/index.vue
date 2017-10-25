@@ -36,8 +36,11 @@ export default {
       console.log(this.projects)
     },
     logout: async function () {
-      const logout = await this.$store.dispatch('logout')
-      this.$router.push({ name: 'index' })
+      const isConfirm = window.confirm('Are you sure?')
+      if (isConfirm) {
+        const logout = await this.$store.dispatch('logout')
+        this.$router.push({ name: 'index' })
+      }
     }
   }
 }
