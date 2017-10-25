@@ -37,8 +37,7 @@ export default {
     },
     logout: async function () {
       const logout = await this.$store.dispatch('logout')
-      console.log(logout)
-      this.$route.push({ name: 'index' })
+      this.$router.push({ name: 'index' })
     }
   }
 }
