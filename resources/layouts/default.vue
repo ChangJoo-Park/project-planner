@@ -81,6 +81,7 @@
 
   export default {
     name: 'layout-default',
+    middleware: 'auth',
     components: {
       MyFooter
     },
