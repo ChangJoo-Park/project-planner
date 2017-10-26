@@ -65,7 +65,8 @@ module.exports = {
     scrollBehaviour: () => ({
       x: 0,
       y: 0
-    })
+    }),
+    linkActiveClass: 'uk-active'
   },
 
   srcDir: resolve(__dirname, '..', 'resources')
