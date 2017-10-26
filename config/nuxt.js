@@ -9,16 +9,15 @@ module.exports = {
       generateStatsFile: true,
       statsFilename: 'webpack-stats.json'
     },
-    vendor: ['vuetify', 'axios', 'vuelidate']
+    vendor: ['axios', 'vuelidate']
   },
   plugins: [
-    '~plugins/vuetify.js',
-    '~plugins/vuelidate.js'
+    '~plugins/vuelidate.js',
+    { src: '~/plugins/uikit.js', ssr: false }
   ],
   css: [
-    { src: '~assets/css/app.styl', lang: 'styl' },
+    'uikit/dist/css/uikit.css',
     '~assets/css/main.css'
-
   ],
   head: {
     title: 'Adonuxt',
