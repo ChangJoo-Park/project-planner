@@ -14,12 +14,14 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-card-badge uk-label">Own</div>
+            <div class="uk-card-badge uk-label">
+              OWN
+            </div>
             <div class="uk-card-body">
-                <p>{{ project.description }}</p>
+              <p>{{ project.description }}</p>
             </div>
             <div class="uk-card-footer">
-              <a href="" class="uk-icon-button uk-margin-small-left" uk-icon="icon: bookmark"></a>
+              <a href="" class="uk-icon-button uk-margin-small-left" uk-icon="icon: star"></a>
               <a href="#" class="uk-button uk-button-text">Read more</a>
             </div>
         </div>

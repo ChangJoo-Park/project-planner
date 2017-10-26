@@ -22,7 +22,8 @@
     <div uk-grid uk-grid-margin>
       <div class="uk-width-1-4@s">
         <ul class="uk-nav-primary uk-nav-parent-icon" uk-nav>
-          <li class="uk-active"><nuxt-link :to="{ name: 'projects' }">Dashboard</nuxt-link></li>
+          <nuxt-link :to="{ name: 'projects' }" tag='li'><a href="#">Dashboard</a></nuxt-link>
+          <nuxt-link :to="{ name: 'profile' }" tag='li'><a href="#">Profile</a></nuxt-link>
         </ul>
       </div>
       <div class="uk-width-3-4@s">
