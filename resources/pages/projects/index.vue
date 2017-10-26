@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <h1 class="title">Projects</h1>
-    <button @click="logout">Logout</button>
+
     <div v-if="emptyProjects">
       <h2 class="title">Empty Projects!</h2>
     </div>
@@ -33,13 +33,6 @@ export default {
   methods: {
     createNewProject: function () {
       console.log(this.projects)
-    },
-    logout: async function () {
-      const isConfirm = window.confirm('Are you sure?')
-      if (isConfirm) {
-        const logout = await this.$store.dispatch('logout')
-        this.$router.push({ name: 'index' })
-      }
     }
   }
 }
