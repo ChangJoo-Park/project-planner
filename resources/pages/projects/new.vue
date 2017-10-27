@@ -7,14 +7,24 @@
       <div class="uk-margin">
         <label class="uk-form-label" for="form-horizontal-text">Title</label>
         <div class="uk-form-controls">
-          <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Awesome Project">
+          <input
+            id="form-horizontal-text"
+            class="uk-input"
+            type="text"
+            placeholder="Awesome Project"
+            v-model="name"
+          >
         </div>
       </div>
 
       <div class="uk-margin">
         <label class="uk-form-label" for="form-horizontal-select">Description</label>
         <div class="uk-form-controls">
-          <textarea class="uk-textarea" placeholder="what is purpose?"></textarea>
+          <textarea
+            class="uk-textarea"
+            placeholder="what is purpose?"
+            v-model="description"
+          />
         </div>
       </div>
 
