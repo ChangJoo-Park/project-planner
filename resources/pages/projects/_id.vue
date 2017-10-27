@@ -1,11 +1,10 @@
 <template>
   <div>
     <h1 class="uk-text-lead">
+      <a href="#" class="uk-icon-button uk-margin-small-right" uk-icon="icon: bookmark"></a>
       {{ project.name }}
-      <small class="uk-text-meta">
-        {{ project.description }}
-      </small>
     </h1>
+    <div class="uk-text-meta">{{ project.description }}</div>
     <div class="uk-margin-medium-top">
       <ul class="uk-tab" data-uk-tab="{ connect:'#project-details', animation: 'scale' }">
         <li><a href="">Iterations</a></li>
