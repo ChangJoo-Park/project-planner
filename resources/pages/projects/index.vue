@@ -9,19 +9,15 @@
                         <img class="uk-border-circle" width="40" height="40" src="https://getuikit.com/docs/images/avatar.jpg">
                     </div>
                     <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">{{ project.name }}</h3>
+                        <h3 class="uk-card-title uk-text-small uk-margin-remove-bottom">{{ project.name }}</h3>
                         <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{ project.created_at }}</time></p>
                     </div>
                 </div>
-            </div>
-            <div class="uk-card-badge uk-label">
-              OWN
             </div>
             <div class="uk-card-body">
               <p>{{ project.description }}</p>
             </div>
             <div class="uk-card-footer">
-              <a href="" class="uk-icon-button uk-margin-small-left" uk-icon="icon: star"></a>
               <nuxt-link :to="{ name: 'projects-id', params: { id: project.id } }" class="uk-button uk-button-text">READ MORE</nuxt-link>
             </div>
         </div>
