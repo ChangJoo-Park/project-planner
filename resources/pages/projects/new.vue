@@ -1,17 +1,30 @@
 <template>
   <section class="container">
-    <h1 class="title">New Project</h1>
-    <form @submit.prevent="submit">
-      <div>
-        <input type="text" v-model="name" placeholder="Name">
+  <form class="uk-form-horizontal uk-margin-large" @submit="submit">
+    <fieldset class="uk-fieldset">
+      <legend class="uk-legend">New Project</legend>
+
+      <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-text">Title</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Awesome Project">
+        </div>
       </div>
-      <div>
-        <textarea v-model="description" placeholder="Description"></textarea>
+
+      <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-select">Description</label>
+        <div class="uk-form-controls">
+          <textarea class="uk-textarea" placeholder="what is purpose?"></textarea>
+        </div>
       </div>
-      <div>
-        <input type="submit">
+
+      <div class="uk-margin">
+        <button type="submit" class="uk-button uk-button-default">Submit</button>
       </div>
-    </form>
+    </fieldset>
+  </form>
+
+
   </section>
 </template>
 
