@@ -22,7 +22,7 @@
             </div>
             <div class="uk-card-footer">
               <a href="" class="uk-icon-button uk-margin-small-left" uk-icon="icon: star"></a>
-              <a href="#" class="uk-button uk-button-text">Read more</a>
+              <nuxt-link :to="{ name: 'projects-id', params: { id: project.id } }" class="uk-button uk-button-text">READ MORE</nuxt-link>
             </div>
         </div>
       </div>
