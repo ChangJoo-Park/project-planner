@@ -8,7 +8,7 @@ class ProjectController {
   }
 
   async show ({ params }) {
-    return await Project.find(params.id)
+    return await Project.query().where('id', params.id).with('todos').first()
   }
 
   async store ({ request, auth }) {
