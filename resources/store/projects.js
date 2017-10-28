@@ -20,7 +20,7 @@ export const actions = {
     const { data: projects } = await axios.get('http://localhost:3333/api/v1/projects')
     commit('SET_PROJECTS', projects)
   },
-  async fetchCurrentProject({ commit }, id) {
+  async fetchCurrentProject ({ commit }, id) {
     const { data: project } = await axios.get(`http://localhost:3333/api/v1/projects/${id}`)
     commit('SET_CURRENT_PROJECT', project)
   }

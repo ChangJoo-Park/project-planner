@@ -2,9 +2,9 @@
   <div>
     <h1 class="uk-text-lead">
       <a href="#" class="uk-icon-button uk-margin-small-right" uk-icon="icon: bookmark"></a>
-      {{ project.name }}
+      {{ currentProject.name }}
     </h1>
-    <div class="uk-text-meta">{{ project.description }}</div>
+    <div class="uk-text-meta">{{ currentProject.description }}</div>
     <div class="uk-margin-medium-top">
       <ul class="uk-tab" data-uk-tab="{ connect:'#project-details', animation: 'scale' }">
         <li><a href="">Iterations</a></li>
@@ -22,16 +22,20 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapGetters } from 'vuex'
 
 export default {
   validate ({ params }) {
     // Must be a number
     return /^\d+$/.test(params.id)
   },
-  async asyncData ({ params }) {
-    const { data: project } = await axios.get(`http://localhost:3333/api/v1/projects/${params.id}`)
-    return { project }
+  async fetch ({ store, params }) {
+    await store.dispatch('projects/fetchCurrentProject', params.id)
+  },
+  computed: {
+    ...mapGetters({
+      currentProject: 'projects/currentProject'
+    })
   }
 }
 </script>
