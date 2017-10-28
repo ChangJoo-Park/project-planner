@@ -4,6 +4,8 @@
       <div class="uk-navbar-left">
         <a class="uk-navbar-item uk-logo" href="#">Project</a>
         <ul class="uk-navbar-nav">
+          <nuxt-link :to="{ name: 'projects' }" tag='li'><a href="#">Dashboard</a></nuxt-link>
+          <nuxt-link :to="{ name: 'profile' }" tag='li'><a href="#">Profile</a></nuxt-link>
           <li>
             <a href="#" @click="logout">
               Logout
@@ -20,13 +22,7 @@
       </div>
     </nav>
     <div uk-grid uk-grid-margin>
-      <div class="uk-width-1-5@s">
-        <ul class="uk-nav-default uk-nav-parent-icon uk-margin-small-left" uk-nav>
-          <nuxt-link :to="{ name: 'projects' }" tag='li'><a href="#">Dashboard</a></nuxt-link>
-          <nuxt-link :to="{ name: 'profile' }" tag='li'><a href="#">Profile</a></nuxt-link>
-        </ul>
-      </div>
-      <div class="uk-width-4-5@s">
+      <div class="uk-width-1-1">
         <div class="uk-container">
           <nuxt/>
         </div>
