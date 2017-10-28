@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-  <form class="uk-form-horizontal uk-margin-large" @submit="submit">
+  <form class="uk-form-horizontal uk-margin-large" @submit.prevent="submit">
     <fieldset class="uk-fieldset">
       <legend class="uk-legend">New Project</legend>
 
