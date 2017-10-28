@@ -13,7 +13,7 @@ class TodoController {
   async update () {
   }
 
-  async delete () {
+  async destroy () {
   }
 }
 
