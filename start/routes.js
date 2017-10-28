@@ -23,6 +23,9 @@ Route.group(() => {
     .resource('projects', 'ProjectController')
     .apiOnly()
   Route
+    .resource('projects.todos', 'TodoController')
+    .apiOnly()
+  Route
     .post('auth/login', 'AuthController.login')
   Route
     .post('auth/logout', 'AuthController.logout')
