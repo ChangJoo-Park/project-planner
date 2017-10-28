@@ -36,20 +36,17 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'page-index',
-  async asyncData ({ params }) {
-    const { data: projects } = await axios.get('http://localhost:3333/api/v1/projects')
-    return { projects }
-  },
-  data: function () {
-    return {
-      projects: []
-    }
+  async fetch ({ store, params }) {
+    await store.dispatch('projects/fetchProjects')
   },
   computed: {
+    ...mapGetters({
+      projects: 'projects/list'
+    }),
     emptyProjects: function () {
       return this.projects.length === 0
     }
