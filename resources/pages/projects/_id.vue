@@ -3,8 +3,9 @@
     <h1 class="uk-text-lead">
       <a href="#" class="uk-icon-button uk-margin-small-right" uk-icon="icon: bookmark"></a>
       {{ currentProject.name }}
+      <small class="uk-text-meta">{{ currentProject.description }}</small>
     </h1>
-    <div class="uk-text-meta">{{ currentProject.description }}</div>
+
     <div class="uk-margin-small-top">
       <ul class="uk-tab" data-uk-tab="{ connect:'#project-details' }">
         <li><a href="#todos">Todos</a></li>
