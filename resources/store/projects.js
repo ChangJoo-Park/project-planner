@@ -16,7 +16,6 @@ export const mutations = {
 
 export const actions = {
   async fetchProjects ({ commit }) {
-    console.log('fetchProject')
     const { data: projects } = await axios.get('http://localhost:3333/api/v1/projects')
     commit('SET_PROJECTS', projects)
   },
