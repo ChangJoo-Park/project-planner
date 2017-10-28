@@ -7,18 +7,28 @@
     <div class="uk-text-meta">{{ currentProject.description }}</div>
     <div class="uk-margin-small-top">
       <ul class="uk-tab" data-uk-tab="{ connect:'#project-details', animation: 'scale' }">
-        <li><a href="">Todos</a></li>
-        <li><a href="">Kanban</a></li>
-        <li><a href="">Calendar</a></li>
-        <li><a href="">Setting</a></li>
+        <li><a href="#todos">Todos</a></li>
+        <li><a href="#kanban">Kanban</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#setting">Setting</a></li>
       </ul>
       <ul id="project-details" class="uk-switcher uk-margin">
         <li>
-          This slide contains a hidden link, that selects the next slide when clicked. The click is simulated by jacascript to mimic autoplay.
+          <ul class="uk-list uk-list-divider">
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+          </ul>
         </li>
-        <li>Content 2</li>
-        <li>Content 3</li>
-        <li>Content 4</li>
+        <li>
+          Kanban
+        </li>
+        <li>
+          Calendar
+        </li>
+        <li>
+          Setting
+        </li>
       </ul>
     </div>
   </div>
