@@ -6,27 +6,53 @@
     </h1>
     <div class="uk-text-meta">{{ currentProject.description }}</div>
     <div class="uk-margin-small-top">
-      <ul class="uk-tab" data-uk-tab="{ connect:'#project-details', animation: 'scale' }">
+      <ul class="uk-tab" data-uk-tab="{ connect:'#project-details' }">
         <li><a href="#todos">Todos</a></li>
         <li><a href="#kanban">Kanban</a></li>
         <li><a href="#calendar">Calendar</a></li>
         <li><a href="#setting">Setting</a></li>
       </ul>
       <ul id="project-details" class="uk-switcher uk-margin">
-        <li>
-          <ul class="uk-list uk-list-divider">
-            <li>List item 1</li>
-            <li>List item 2</li>
-            <li>List item 3</li>
-          </ul>
+        <li class="uk-animation-fade uk-animation-fast">
+          <div>
+            <form>
+              <div class="uk-margin">
+                <div class="uk-inline uk-width-1-1">
+                  <input class="uk-input" placeholder="New One">
+                </div>
+              </div>
+            </form>
+            <ul class="uk-list uk-list-divider">
+              <li>
+                <div class="uk-position-relative uk-margin-small-left">
+                  <div>List item 1</div>
+                  <div class="uk-position-center-right">
+                    <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: user"></a>
+                    <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: calendar"></a>
+                  </div>
+                </div>
+              </li>
+              <li class="uk-padding-small-left">
+                <div class="uk-position-relative uk-margin-small-left">
+                  List item 2
+                </div>
+              </li>
+              <li class="uk-padding-small-left">
+                <div class="uk-position-relative uk-margin-small-left">
+                  List item 3
+                </div>
+              </li>
+            </ul>
+          </div>
         </li>
-        <li>
+        <!-- Kanban -->
+        <li class="uk-animation-fade uk-animation-fast">
           Kanban
         </li>
-        <li>
+        <li class="uk-animation-fade uk-animation-fast">
           Calendar
         </li>
-        <li>
+        <li class="uk-animation-fade uk-animation-fast">
           Setting
         </li>
       </ul>
