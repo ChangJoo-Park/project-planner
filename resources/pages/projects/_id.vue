@@ -5,9 +5,11 @@
       {{ currentProject.name }}
     </h1>
     <div class="uk-text-meta">{{ currentProject.description }}</div>
-    <div class="uk-margin-medium-top">
+    <div class="uk-margin-small-top">
       <ul class="uk-tab" data-uk-tab="{ connect:'#project-details', animation: 'scale' }">
-        <li><a href="">Iterations</a></li>
+        <li><a href="">Todos</a></li>
+        <li><a href="">Kanban</a></li>
+        <li><a href="">Calendar</a></li>
         <li><a href="">Setting</a></li>
       </ul>
       <ul id="project-details" class="uk-switcher uk-margin">
@@ -16,6 +18,7 @@
         </li>
         <li>Content 2</li>
         <li>Content 3</li>
+        <li>Content 4</li>
       </ul>
     </div>
   </div>
