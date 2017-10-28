@@ -7,6 +7,7 @@ class TodoSchema extends Schema {
     this.create('todos', (table) => {
       table.increments()
       table.integer('project_id').unsigned().references('id').inTable('projects')
+      table.integer('user_id').unsigned().references('id').inTable('users')
       table.integer('assigned_id').unsigned().references('id').inTable('users')
       table.string('name').notNullable()
       table.string('note').nullable()
