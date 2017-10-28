@@ -1,5 +1,5 @@
 <template>
-  <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+  <div class="uk-container uk-container-center uk-margin-large-bottom">
     <nav class="uk-navbar-container uk-margin" uk-navbar>
       <div class="uk-navbar-left">
         <a class="uk-navbar-item uk-logo" href="#">Project</a>
