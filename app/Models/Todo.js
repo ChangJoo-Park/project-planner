@@ -7,6 +7,10 @@ class Todo extends Model {
     return this.belongsTo('App/Models/User')
   }
 
+  assigned () {
+    return this.belongsTo('App/Models/User')
+  }
+
   project () {
     return this.belongsTo('App/Models/Project')
   }
