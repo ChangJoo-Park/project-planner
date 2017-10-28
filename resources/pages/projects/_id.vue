@@ -19,28 +19,18 @@
             <form @submit.prevent="createNewTodo">
               <div class="uk-margin">
                 <div class="uk-inline uk-width-1-1">
-                  <input class="uk-input" placeholder="New One">
+                  <input class="uk-input" placeholder="New One" v-model="todo">
                 </div>
               </div>
             </form>
             <ul class="uk-list uk-list-divider" uk-sortable>
-              <li>
+              <li v-for="todo in currentProject.todos" :key="todo.id">
                 <div class="uk-position-relative uk-margin-small-left">
-                  <div>List item 1</div>
+                  <div>{{ todo.name }}</div>
                   <div class="uk-position-center-right">
                     <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: user"></a>
                     <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: calendar"></a>
                   </div>
-                </div>
-              </li>
-              <li class="uk-padding-small-left">
-                <div class="uk-position-relative uk-margin-small-left">
-                  List item 2
-                </div>
-              </li>
-              <li class="uk-padding-small-left">
-                <div class="uk-position-relative uk-margin-small-left">
-                  List item 3
                 </div>
               </li>
             </ul>
@@ -72,13 +62,30 @@ export default {
   async fetch ({ store, params }) {
     await store.dispatch('projects/fetchCurrentProject', params.id)
   },
+  data: function () {
+    return {
+      todo: ''
+    }
+  },
   computed: {
     ...mapGetters({
       currentProject: 'projects/currentProject'
     })
   },
   methods: {
-    createNewTodo: function () {}
+    createNewTodo: async function () {
+      if (this.todo.trim() === '') {
+        this.todo = ''
+        return
+      }
+
+      await this.$store.dispatch('projects/addNewTodoToProject',
+       {
+         projectId: this.currentProject.id,
+         todo: this.todo
+       })
+      this.todo = ''
+    }
   }
 }
 </script>
