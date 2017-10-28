@@ -13,9 +13,9 @@
         <li><a href="#setting">Setting</a></li>
       </ul>
       <ul id="project-details" class="uk-switcher uk-margin">
-        <li class="uk-animation-fade uk-animation-fast">
+        <li class="">
           <div>
-            <form>
+            <form @submit.prevent="createNewTodo">
               <div class="uk-margin">
                 <div class="uk-inline uk-width-1-1">
                   <input class="uk-input" placeholder="New One">
@@ -46,13 +46,13 @@
           </div>
         </li>
         <!-- Kanban -->
-        <li class="uk-animation-fade uk-animation-fast">
+        <li class="">
           Kanban
         </li>
-        <li class="uk-animation-fade uk-animation-fast">
+        <li class="">
           Calendar
         </li>
-        <li class="uk-animation-fade uk-animation-fast">
+        <li class="">
           Setting
         </li>
       </ul>
@@ -75,6 +75,9 @@ export default {
     ...mapGetters({
       currentProject: 'projects/currentProject'
     })
+  },
+  methods: {
+    createNewTodo: function () {}
   }
 }
 </script>
