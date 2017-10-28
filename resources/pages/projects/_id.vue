@@ -22,7 +22,7 @@
                 </div>
               </div>
             </form>
-            <ul class="uk-list uk-list-divider">
+            <ul class="uk-list uk-list-divider" uk-sortable>
               <li>
                 <div class="uk-position-relative uk-margin-small-left">
                   <div>List item 1</div>
