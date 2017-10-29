@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="uk-offcanvas-content">
     <h1 class="uk-text-lead">
       <a href="#" class="uk-icon-button uk-margin-small-right" uk-icon="icon: bookmark"></a>
       {{ currentProject.name }}
@@ -18,11 +18,13 @@
           <form @submit.prevent="createNewTodo">
             <div class="uk-margin">
               <div class="uk-inline uk-width-1-1">
-                <input class="uk-input" placeholder="New One" v-model="todo">
+                <input class="uk-input" placeholder="New One" v-model="newTodo">
               </div>
             </div>
           </form>
-          <todo-list></todo-list>
+          <todo-list
+            @openTodo="openTodo"
+          ></todo-list>
         </li>
         <!-- Kanban -->
         <li class="">
@@ -35,6 +37,15 @@
           Setting
         </li>
       </ul>
+    </div>
+    <div v-if="selectedTodo" class="uk-position-fixed uk-position-top-left uk-width-1-1" uk-grid>
+      <div class="uk-width-2-3 overlay" @click="closeTodo"></div>
+      <div class="uk-width-1-3 details uk-margin">
+        <button class="uk-close-large uk-float-right" type="button" uk-close  @click="closeTodo"></button>
+        <div>
+          <h1>{{ selectedTodo.name }}</h1>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +67,8 @@ export default {
   },
   data: function () {
     return {
-      todo: ''
+      newTodo: '',
+      selectedTodo: null
     }
   },
   computed: {
@@ -66,22 +78,42 @@ export default {
   },
   methods: {
     createNewTodo: async function () {
-      if (this.todo.trim() === '') {
-        this.todo = ''
+      console.log('create new todo')
+      if (this.newTodo.trim() === '') {
+        this.newTodo = ''
         return
       }
 
-      await this.$store.dispatch('projects/addNewTodoToProject',
-       {
+      await this.$store.dispatch('projects/addNewTodoToProject',{
          projectId: this.currentProject.id,
-         todo: this.todo
+         todo: this.newTodo
        })
-      this.todo = ''
+
+      this.newTodo = ''
+    },
+    openTodo: function (todo) {
+      console.log('open todo')
+      this.selectedTodo = todo
+    },
+    closeTodo: function () {
+      this.selectedTodo = null
     }
   }
 }
 </script>
 
 <style>
-
+.overlay {
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  /* width: 100vw; */
+  height: 100vh;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.details {
+  height: 100vh;
+  background-color: #fff;
+}
 </style>
