@@ -15,26 +15,14 @@
       </ul>
       <ul id="project-details" class="uk-switcher uk-margin">
         <li class="">
-          <div>
-            <form @submit.prevent="createNewTodo">
-              <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                  <input class="uk-input" placeholder="New One" v-model="todo">
-                </div>
+          <form @submit.prevent="createNewTodo">
+            <div class="uk-margin">
+              <div class="uk-inline uk-width-1-1">
+                <input class="uk-input" placeholder="New One" v-model="todo">
               </div>
-            </form>
-            <ul class="uk-list uk-list-divider" uk-sortable>
-              <li v-for="todo in currentProject.todos" :key="todo.id">
-                <div class="uk-position-relative uk-margin-small-left">
-                  <div>{{ todo.name }}</div>
-                  <div class="uk-position-center-right">
-                    <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: user"></a>
-                    <a href="#" class="uk-icon-link uk-margin-small-right" uk-icon="icon: calendar"></a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+            </div>
+          </form>
+          <todo-list></todo-list>
         </li>
         <!-- Kanban -->
         <li class="">
@@ -53,6 +41,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+const TodoList = () => import('~/components/TodoList')
 
 export default {
   validate ({ params }) {
@@ -61,6 +50,9 @@ export default {
   },
   async fetch ({ store, params }) {
     await store.dispatch('projects/fetchCurrentProject', params.id)
+  },
+  components: {
+    TodoList
   },
   data: function () {
     return {
