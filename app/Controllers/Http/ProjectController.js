@@ -8,11 +8,16 @@ class ProjectController {
   }
 
   async show ({ params }) {
-    return await Project.find(params.id)
+    return await Project.query().where('id', params.id).with('todos').first()
   }
 
-  async store ({ reqeust }) {
-    return await Project.create(request.post())
+  async store ({ request, auth }) {
+    try {
+      const saved = await auth.user.projects().create(request.post())
+      return saved
+    } catch (e) {
+      return e
+    }
   }
 
   async update ({ params, request }) {

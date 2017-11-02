@@ -1,79 +1,34 @@
 <template>
-  <v-app>
-    <!-- Drawer -->
-    <v-navigation-drawer
-      persistent
-      clipped
-      enable-resize-watcher
-      v-model="drawer"
-      app
-    >
-      <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text" @click="" ripple nuxt exact :to="item.to">
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>
-              {{ item.text }}
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-subheader class="mt-3 grey--text text--darken-1">SUBSCRIPTIONS</v-subheader>
-        <v-list>
-          <v-list-tile v-for="item in items2" :key="item.text" avatar @click="">
-            <v-list-tile-avatar>
-              <img :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`" alt="">
-            </v-list-tile-avatar>
-            <v-list-tile-title v-text="item.text"></v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-        <v-list-tile class="mt-3" @click="">
-          <v-list-tile-action>
-            <v-icon color="grey darken-1">add_circle_outline</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title class="grey--text text--darken-1">Browse Projects</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon color="grey darken-1">settings</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title class="grey--text text--darken-1">Manage Settings</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <!-- Toolbar -->
-    <v-toolbar color="red" dense fixed clipped-left app>
-      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <v-icon class="ml-3">fa-youtube</v-icon>
-      </v-toolbar-title>
-      <v-layout row align-center style="max-width: 650px">
-        <v-text-field
-          placeholder="Search..."
-          single-line
-          append-icon="search"
-          :append-icon-cb="() => {}"
-          class="white--text"
-          hide-details
-        ></v-text-field>
-      </v-layout>
-      <v-spacer></v-spacer>
-      <v-btn icon append to="/projects/new">
-        <v-icon>add</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <main>
-      <v-content>
-        <v-container fluid>
-          <v-layout>
-            <nuxt/>
-          </v-layout>
-        </v-container>
-      </v-content>
-    </main>
-    <v-footer app></v-footer>
-  </v-app>
+  <div class="uk-container uk-container-center uk-margin-large-bottom">
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="#">Project</a>
+        <ul class="uk-navbar-nav">
+          <nuxt-link :to="{ name: 'projects' }" tag='li'><a href="#">Dashboard</a></nuxt-link>
+          <nuxt-link :to="{ name: 'profile' }" tag='li'><a href="#">Profile</a></nuxt-link>
+          <li>
+            <a href="#" @click="logout">
+              Logout
+            </a>
+          </li>
+        </ul>
+
+        <div class="uk-navbar-item">
+          <form action="javascript:void(0)">
+            <input class="uk-input uk-form-width-small" type="text" placeholder="Input">
+            <button class="uk-button uk-button-default">Button</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div uk-grid uk-grid-margin>
+      <div class="uk-width-1-1">
+        <div class="uk-container">
+          <nuxt/>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -81,16 +36,17 @@
 
   export default {
     name: 'layout-default',
+    middleware: 'auth',
     components: {
       MyFooter
     },
-    data: function () {
-      return {
-        drawer: true,
-        items: [
-          { text: 'Dashboard', icon: 'dashboard', to: '/projects' }
-        ],
-        items2: []
+    methods: {
+      logout: async function () {
+        const isConfirm = window.confirm('Are you sure?')
+        if (isConfirm) {
+          const logout = await this.$store.dispatch('logout')
+          this.$router.push({ name: 'index' })
+        }
       }
     }
   }
